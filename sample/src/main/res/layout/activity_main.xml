@@ -509,7 +509,7 @@
         />
 
     <Button
-        android:id="@+id/misc_callbacks"
+        android:id="@+id/misc_dialog_callbacks"
         android:layout_width="match_parent"
         android:layout_height="@dimen/sample_button_height"
         android:layout_marginTop="@dimen/sample_button_spacing"

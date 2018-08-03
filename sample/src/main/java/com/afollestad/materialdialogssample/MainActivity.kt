@@ -33,6 +33,7 @@ import kotlinx.android.synthetic.main.activity_main.list_long_titled
 import kotlinx.android.synthetic.main.activity_main.list_long_titled_buttons
 import kotlinx.android.synthetic.main.activity_main.list_titled
 import kotlinx.android.synthetic.main.activity_main.list_titled_buttons
+import kotlinx.android.synthetic.main.activity_main.misc_dialog_callbacks
 import kotlinx.android.synthetic.main.activity_main.multiple_choice
 import kotlinx.android.synthetic.main.activity_main.multiple_choice_buttons
 import kotlinx.android.synthetic.main.activity_main.multiple_choice_disabled_items
@@ -351,6 +352,19 @@ class MainActivity : AppCompatActivity() {
         neutralButton(R.string.more_info) {
           toast("On neutral")
         }
+        debugMode(debugMode)
+      }
+    }
+
+    misc_dialog_callbacks.setOnClickListener {
+      MaterialDialog(this).show {
+        title(textRes = R.string.useGoogleLocationServices)
+        message(textRes = R.string.useGoogleLocationServicesPrompt)
+        positiveButton(R.string.agree)
+        negativeButton(R.string.disagree)
+        onShow { toast("onShow") }
+        onCancel { toast("onCancel") }
+        onDismiss { toast("onDismiss") }
         debugMode(debugMode)
       }
     }

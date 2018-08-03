@@ -16,6 +16,8 @@ import com.afollestad.materialdialogs.internal.MDRecyclerView
 import com.afollestad.materialdialogs.internal.MDRootView
 import com.afollestad.materialdialogs.internal.MDScrollView
 
+typealias DialogCallback = (MaterialDialog) -> Unit
+
 internal fun assertOneSet(
   a: Int,
   b: Any?
@@ -57,7 +59,7 @@ class MaterialDialog(
     return this
   }
 
-  fun MaterialDialog.message(@StringRes textRes: Int = 0, text: CharSequence? = null): MaterialDialog {
+  fun message(@StringRes textRes: Int = 0, text: CharSequence? = null): MaterialDialog {
     addContentScrollView()
     addContentMessageView(textRes, text)
     return this
@@ -104,6 +106,21 @@ class MaterialDialog(
 
   fun debugMode(debugMode: Boolean = true): MaterialDialog {
     view.debugMode = debugMode
+    return this
+  }
+
+  inline fun onShow(crossinline callback: DialogCallback): MaterialDialog {
+    setOnShowListener { callback.invoke(this@MaterialDialog) }
+    return this
+  }
+
+  inline fun onDismiss(crossinline callback: DialogCallback): MaterialDialog {
+    setOnDismissListener { callback.invoke(this@MaterialDialog) }
+    return this
+  }
+
+  inline fun onCancel(crossinline callback: DialogCallback): MaterialDialog {
+    setOnCancelListener { callback.invoke(this@MaterialDialog) }
     return this
   }
 
