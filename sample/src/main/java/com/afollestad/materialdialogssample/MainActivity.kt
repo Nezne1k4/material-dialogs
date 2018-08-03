@@ -53,186 +53,186 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
     basic.setOnClickListener {
-      MaterialDialog(this)
-          .message(textRes = R.string.shareLocationPrompt)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        message(textRes = R.string.shareLocationPrompt)
+        debugMode(debugMode)
+      }
     }
 
     basic_titled.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.useGoogleLocationServices)
-          .message(textRes = R.string.useGoogleLocationServicesPrompt)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.useGoogleLocationServices)
+        message(textRes = R.string.useGoogleLocationServicesPrompt)
+        debugMode(debugMode)
+      }
     }
 
     basic_buttons.setOnClickListener {
-      MaterialDialog(this)
-          .message(textRes = R.string.useGoogleLocationServicesPrompt)
-          .positiveButton(positiveRes = R.string.agree)
-          .negativeButton(negativeRes = R.string.disagree)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        message(textRes = R.string.useGoogleLocationServicesPrompt)
+        positiveButton(positiveRes = R.string.agree)
+        negativeButton(negativeRes = R.string.disagree)
+        debugMode(debugMode)
+      }
     }
 
     basic_titled_buttons.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.useGoogleLocationServices)
-          .message(textRes = R.string.useGoogleLocationServicesPrompt)
-          .positiveButton(positiveRes = R.string.agree)
-          .negativeButton(negativeRes = R.string.disagree)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.useGoogleLocationServices)
+        message(textRes = R.string.useGoogleLocationServicesPrompt)
+        positiveButton(positiveRes = R.string.agree)
+        negativeButton(negativeRes = R.string.disagree)
+        debugMode(debugMode)
+      }
     }
 
     basic_long.setOnClickListener {
-      MaterialDialog(this)
-          .message(textRes = R.string.loremIpsum)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        message(textRes = R.string.loremIpsum)
+        debugMode(debugMode)
+      }
     }
 
     basic_long_titled.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.useGoogleLocationServices)
-          .message(textRes = R.string.loremIpsum)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.useGoogleLocationServices)
+        message(textRes = R.string.loremIpsum)
+        debugMode(debugMode)
+      }
     }
 
     basic_long_buttons.setOnClickListener {
-      MaterialDialog(this)
-          .message(textRes = R.string.loremIpsum)
-          .positiveButton(positiveRes = R.string.agree)
-          .negativeButton(negativeRes = R.string.disagree)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        message(textRes = R.string.loremIpsum)
+        positiveButton(positiveRes = R.string.agree)
+        negativeButton(negativeRes = R.string.disagree)
+        debugMode(debugMode)
+      }
     }
 
     basic_long_titled_buttons.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.useGoogleLocationServices)
-          .message(textRes = R.string.loremIpsum)
-          .positiveButton(positiveRes = R.string.agree)
-          .negativeButton(negativeRes = R.string.disagree)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.useGoogleLocationServices)
+        message(textRes = R.string.loremIpsum)
+        positiveButton(positiveRes = R.string.agree)
+        negativeButton(negativeRes = R.string.disagree)
+        debugMode(debugMode)
+      }
     }
 
     basic_icon.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.useGoogleLocationServices)
-          .icon(iconRes = R.mipmap.ic_launcher)
-          .message(textRes = R.string.loremIpsum)
-          .positiveButton(positiveRes = R.string.agree)
-          .negativeButton(negativeRes = R.string.disagree)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.useGoogleLocationServices)
+        icon(iconRes = R.mipmap.ic_launcher)
+        message(textRes = R.string.loremIpsum)
+        positiveButton(positiveRes = R.string.agree)
+        negativeButton(negativeRes = R.string.disagree)
+        debugMode(debugMode)
+      }
     }
 
     // TODO checkbox prompt dialogs
 
     list.setOnClickListener {
-      MaterialDialog(this)
-          .listItems(arrayRes = R.array.socialNetworks)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        listItems(arrayRes = R.array.socialNetworks)
+        debugMode(debugMode)
+      }
     }
 
     list_buttons.setOnClickListener {
-      MaterialDialog(this)
-          .listItems(arrayRes = R.array.socialNetworks)
-          .positiveButton(positiveRes = R.string.agree)
-          .negativeButton(negativeRes = R.string.disagree)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        listItems(arrayRes = R.array.socialNetworks)
+        positiveButton(positiveRes = R.string.agree)
+        negativeButton(negativeRes = R.string.disagree)
+        debugMode(debugMode)
+      }
     }
 
     list_titled.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.socialNetworks)
-          .listItems(arrayRes = R.array.socialNetworks)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.socialNetworks)
+        listItems(arrayRes = R.array.socialNetworks)
+        debugMode(debugMode)
+      }
     }
 
     list_titled_buttons.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.socialNetworks)
-          .listItems(arrayRes = R.array.socialNetworks)
-          .positiveButton(positiveRes = R.string.agree)
-          .negativeButton(negativeRes = R.string.disagree)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.socialNetworks)
+        listItems(arrayRes = R.array.socialNetworks)
+        positiveButton(positiveRes = R.string.agree)
+        negativeButton(negativeRes = R.string.disagree)
+        debugMode(debugMode)
+      }
     }
 
     list_long.setOnClickListener {
-      MaterialDialog(this)
-          .listItems(arrayRes = R.array.states)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        listItems(arrayRes = R.array.states)
+        debugMode(debugMode)
+      }
     }
 
     list_long_buttons.setOnClickListener {
-      MaterialDialog(this)
-          .listItems(arrayRes = R.array.states)
-          .positiveButton(positiveRes = R.string.agree)
-          .negativeButton(negativeRes = R.string.disagree)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        listItems(arrayRes = R.array.states)
+        positiveButton(positiveRes = R.string.agree)
+        negativeButton(negativeRes = R.string.disagree)
+        debugMode(debugMode)
+      }
     }
 
     list_long_titled.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.states)
-          .listItems(arrayRes = R.array.states)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.states)
+        listItems(arrayRes = R.array.states)
+        debugMode(debugMode)
+      }
     }
 
     list_long_titled_buttons.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.states)
-          .listItems(arrayRes = R.array.states)
-          .positiveButton(positiveRes = R.string.agree)
-          .negativeButton(negativeRes = R.string.disagree)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.states)
+        listItems(arrayRes = R.array.states)
+        positiveButton(positiveRes = R.string.agree)
+        negativeButton(negativeRes = R.string.disagree)
+        debugMode(debugMode)
+      }
     }
 
     list_long_items.setOnClickListener {
-      MaterialDialog(this)
-          .listItems(arrayRes = R.array.socialNetworks_longItems)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        listItems(arrayRes = R.array.socialNetworks_longItems)
+        debugMode(debugMode)
+      }
     }
 
     list_long_items_buttons.setOnClickListener {
-      MaterialDialog(this)
-          .listItems(arrayRes = R.array.socialNetworks_longItems)
-          .positiveButton(positiveRes = R.string.agree)
-          .negativeButton(negativeRes = R.string.disagree)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        listItems(arrayRes = R.array.socialNetworks_longItems)
+        positiveButton(positiveRes = R.string.agree)
+        negativeButton(negativeRes = R.string.disagree)
+        debugMode(debugMode)
+      }
     }
 
     list_long_items_titled.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.socialNetworks)
-          .listItems(arrayRes = R.array.socialNetworks_longItems)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.socialNetworks)
+        listItems(arrayRes = R.array.socialNetworks_longItems)
+        debugMode(debugMode)
+      }
     }
 
     list_long_items_titled_buttons.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.socialNetworks)
-          .listItems(arrayRes = R.array.socialNetworks_longItems)
-          .positiveButton(positiveRes = R.string.agree)
-          .negativeButton(negativeRes = R.string.disagree)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.socialNetworks)
+        listItems(arrayRes = R.array.socialNetworks_longItems)
+        positiveButton(positiveRes = R.string.agree)
+        negativeButton(negativeRes = R.string.disagree)
+        debugMode(debugMode)
+      }
     }
 
     list_checkPrompt.setOnClickListener {
@@ -248,29 +248,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     single_choice.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.socialNetworks)
-          .singleChoiceListItems(arrayRes = R.array.socialNetworks, initialSelection = 1)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.socialNetworks)
+        singleChoiceListItems(arrayRes = R.array.socialNetworks, initialSelection = 1)
+        debugMode(debugMode)
+      }
     }
 
     single_choice_buttons.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.socialNetworks)
-          .singleChoiceListItems(arrayRes = R.array.socialNetworks, initialSelection = 2)
-          .positiveButton(positiveRes = R.string.choose)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.socialNetworks)
+        singleChoiceListItems(arrayRes = R.array.socialNetworks, initialSelection = 2)
+        positiveButton(positiveRes = R.string.choose)
+        debugMode(debugMode)
+      }
     }
 
     single_choice_long_items.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.socialNetworks)
-          .singleChoiceListItems(arrayRes = R.array.socialNetworks_longItems)
-          .positiveButton(positiveRes = R.string.choose)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.socialNetworks)
+        singleChoiceListItems(arrayRes = R.array.socialNetworks_longItems)
+        positiveButton(positiveRes = R.string.choose)
+        debugMode(debugMode)
+      }
     }
 
     single_choice_disabled_items.setOnClickListener {
@@ -300,25 +300,25 @@ class MainActivity : AppCompatActivity() {
     // TODO
 
     buttons_stacked.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.useGoogleLocationServices)
-          .message(textRes = R.string.useGoogleLocationServicesPrompt)
-          .positiveButton(positiveText = "Hello World")
-          .negativeButton(negativeText = "How are you doing?")
-          .neutralButton(neutralText = "Testing long buttons")
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.useGoogleLocationServices)
+        message(textRes = R.string.useGoogleLocationServicesPrompt)
+        positiveButton(positiveText = "Hello World")
+        negativeButton(negativeText = "How are you doing?")
+        neutralButton(neutralText = "Testing long buttons")
+        debugMode(debugMode)
+      }
     }
 
     buttons_neutral.setOnClickListener {
-      MaterialDialog(this)
-          .title(textRes = R.string.useGoogleLocationServices)
-          .message(textRes = R.string.useGoogleLocationServicesPrompt)
-          .positiveButton(positiveRes = R.string.agree)
-          .negativeButton(negativeRes = R.string.disagree)
-          .neutralButton(neutralRes = R.string.more_info)
-          .debugMode(debugMode)
-          .show()
+      MaterialDialog(this).show {
+        title(textRes = R.string.useGoogleLocationServices)
+        message(textRes = R.string.useGoogleLocationServicesPrompt)
+        positiveButton(positiveRes = R.string.agree)
+        negativeButton(negativeRes = R.string.disagree)
+        neutralButton(neutralRes = R.string.more_info)
+        debugMode(debugMode)
+      }
     }
   }
 }
