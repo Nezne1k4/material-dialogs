@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.extensions.icon
 import com.afollestad.materialdialogs.extensions.listItems
-import com.afollestad.materialdialogs.extensions.multipleChoiceListItems
-import com.afollestad.materialdialogs.extensions.singleChoiceListItems
+import com.afollestad.materialdialogs.extensions.listItemsMultiChoice
+import com.afollestad.materialdialogs.extensions.listItemsSingleChoice
 import kotlinx.android.synthetic.main.activity_main.basic
 import kotlinx.android.synthetic.main.activity_main.basic_buttons
 import kotlinx.android.synthetic.main.activity_main.basic_icon
@@ -28,7 +28,6 @@ import kotlinx.android.synthetic.main.activity_main.list_long_items
 import kotlinx.android.synthetic.main.activity_main.list_long_items_buttons
 import kotlinx.android.synthetic.main.activity_main.list_long_items_titled
 import kotlinx.android.synthetic.main.activity_main.list_long_items_titled_buttons
-import kotlinx.android.synthetic.main.activity_main.list_long_press
 import kotlinx.android.synthetic.main.activity_main.list_long_titled
 import kotlinx.android.synthetic.main.activity_main.list_long_titled_buttons
 import kotlinx.android.synthetic.main.activity_main.list_titled
@@ -244,14 +243,10 @@ class MainActivity : AppCompatActivity() {
       // TODO
     }
 
-    list_long_press.setOnClickListener {
-      // TODO
-    }
-
     single_choice.setOnClickListener {
       MaterialDialog(this).show {
         title(textRes = R.string.socialNetworks)
-        singleChoiceListItems(arrayRes = R.array.socialNetworks, initialSelection = 1)
+        listItemsSingleChoice(arrayRes = R.array.socialNetworks, initialSelection = 1)
         debugMode(debugMode)
       }
     }
@@ -259,7 +254,7 @@ class MainActivity : AppCompatActivity() {
     single_choice_buttons.setOnClickListener {
       MaterialDialog(this).show {
         title(textRes = R.string.socialNetworks)
-        singleChoiceListItems(arrayRes = R.array.socialNetworks, initialSelection = 2)
+        listItemsSingleChoice(arrayRes = R.array.socialNetworks, initialSelection = 2)
         positiveButton(positiveRes = R.string.choose)
         debugMode(debugMode)
       }
@@ -268,7 +263,7 @@ class MainActivity : AppCompatActivity() {
     single_choice_long_items.setOnClickListener {
       MaterialDialog(this).show {
         title(textRes = R.string.socialNetworks)
-        singleChoiceListItems(arrayRes = R.array.socialNetworks_longItems)
+        listItemsSingleChoice(arrayRes = R.array.socialNetworks_longItems)
         positiveButton(positiveRes = R.string.choose)
         debugMode(debugMode)
       }
@@ -281,7 +276,7 @@ class MainActivity : AppCompatActivity() {
     multiple_choice.setOnClickListener {
       MaterialDialog(this).show {
         title(textRes = R.string.socialNetworks)
-        multipleChoiceListItems(arrayRes = R.array.socialNetworks, initialSelection = arrayOf(1, 3))
+        listItemsMultiChoice(arrayRes = R.array.socialNetworks, initialSelection = arrayOf(1, 3))
         debugMode(debugMode)
       }
     }
@@ -289,7 +284,7 @@ class MainActivity : AppCompatActivity() {
     multiple_choice_buttons.setOnClickListener {
       MaterialDialog(this).show {
         title(textRes = R.string.socialNetworks)
-        multipleChoiceListItems(arrayRes = R.array.socialNetworks, initialSelection = arrayOf(1, 3))
+        listItemsMultiChoice(arrayRes = R.array.socialNetworks, initialSelection = arrayOf(1, 3))
         positiveButton(positiveRes = R.string.choose)
         debugMode(debugMode)
       }
@@ -304,7 +299,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     multiple_choice_long_items.setOnClickListener {
-      // TODO
+      MaterialDialog(this).show {
+        title(textRes = R.string.socialNetworks)
+        listItemsMultiChoice(arrayRes = R.array.socialNetworks_longItems)
+        positiveButton(positiveRes = R.string.choose)
+        debugMode(debugMode)
+      }
     }
 
     multiple_choice_disabled_items.setOnClickListener {

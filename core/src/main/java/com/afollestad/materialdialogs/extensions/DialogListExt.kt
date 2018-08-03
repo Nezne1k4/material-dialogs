@@ -50,7 +50,7 @@ fun MaterialDialog.listItems(
   return listAdapter(MDListAdapter(this, items, click))
 }
 
-fun MaterialDialog.singleChoiceListItems(
+fun MaterialDialog.listItemsSingleChoice(
   @ArrayRes arrayRes: Int = 0,
   array: Array<CharSequence>? = null,
   initialSelection: Int = -1,
@@ -61,7 +61,7 @@ fun MaterialDialog.singleChoiceListItems(
   return listAdapter(MDSingleChoiceAdapter(this, items, initialSelection, selectionChanged))
 }
 
-fun MaterialDialog.multipleChoiceListItems(
+fun MaterialDialog.listItemsMultiChoice(
   @ArrayRes arrayRes: Int = 0,
   array: Array<CharSequence>? = null,
   initialSelection: Array<Int> = emptyArray(),
