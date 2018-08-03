@@ -129,7 +129,7 @@ class MaterialDialog(
     super.show()
   }
 
-  private fun MaterialDialog.addContentMessageView(@StringRes res: Int, text: CharSequence?) {
+  private fun addContentMessageView(@StringRes res: Int, text: CharSequence?) {
     if (this.textViewMessage == null) {
       this.textViewMessage = inflate(
           context, layout.md_dialog_stub_message, this.contentScrollViewFrame!!
