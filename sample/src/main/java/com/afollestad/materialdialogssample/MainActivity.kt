@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.extensions.icon
 import com.afollestad.materialdialogs.extensions.listItems
-import com.afollestad.materialdialogs.extensions.message
 import com.afollestad.materialdialogs.extensions.singleChoiceListItems
 import kotlinx.android.synthetic.main.activity_main.basic
 import kotlinx.android.synthetic.main.activity_main.basic_buttons

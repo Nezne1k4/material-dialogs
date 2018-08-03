@@ -6,6 +6,9 @@ import android.support.annotation.StringRes
 import android.support.annotation.StyleRes
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.afollestad.materialdialogs.R.layout
+import com.afollestad.materialdialogs.extensions.addContentScrollView
+import com.afollestad.materialdialogs.extensions.getString
 import com.afollestad.materialdialogs.extensions.inflate
 import com.afollestad.materialdialogs.extensions.setText
 import com.afollestad.materialdialogs.extensions.setWindowConstraints
@@ -51,6 +54,12 @@ class MaterialDialog(
   fun title(@StringRes textRes: Int = 0, text: CharSequence? = null): MaterialDialog {
     assertOneSet(textRes, text)
     setText(R.id.md_text_title, textRes, text)
+    return this
+  }
+
+  fun MaterialDialog.message(@StringRes textRes: Int = 0, text: CharSequence? = null): MaterialDialog {
+    addContentScrollView()
+    addContentMessageView(textRes, text)
     return this
   }
 
@@ -101,5 +110,16 @@ class MaterialDialog(
   inline fun show(func: MaterialDialog.() -> Unit) {
     this.func()
     super.show()
+  }
+
+  private fun MaterialDialog.addContentMessageView(@StringRes res: Int, text: CharSequence?) {
+    if (this.textViewMessage == null) {
+      this.textViewMessage = inflate(
+          context, layout.md_dialog_stub_message, this.contentScrollViewFrame!!
+      )
+      this.contentScrollViewFrame!!.addView(this.textViewMessage)
+    }
+    assertOneSet(res, text)
+    this.textViewMessage!!.text = text ?: getString(res)
   }
 }
