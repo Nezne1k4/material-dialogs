@@ -16,9 +16,9 @@
     <!-- Basic -->
 
     <TextView
-        style="@style/SampleHeader"
         android:layout_marginTop="0dp"
         android:text="Basic"
+        style="@style/SampleHeader"
         />
 
     <Button
@@ -127,8 +127,8 @@
     <!-- Basic Lists -->
 
     <TextView
-        style="@style/SampleHeader"
         android:text="Lists"
+        style="@style/SampleHeader"
         />
 
     <Button
@@ -254,8 +254,8 @@
     <!-- Choice Lists -->
 
     <TextView
-        style="@style/SampleHeader"
         android:text="Choice Lists"
+        style="@style/SampleHeader"
         />
 
     <Button
@@ -299,6 +299,14 @@
         />
 
     <Button
+        android:id="@+id/multiple_choice_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sample_button_height"
+        android:layout_marginTop="@dimen/sample_button_spacing"
+        android:text="Multiple Choice + Buttons"
+        />
+
+    <Button
         android:id="@+id/multiple_choice_limit"
         android:layout_width="match_parent"
         android:layout_height="@dimen/sample_button_height"
@@ -333,8 +341,8 @@
     <!-- Action Buttons -->
 
     <TextView
-        style="@style/SampleHeader"
         android:text="Action Buttons"
+        style="@style/SampleHeader"
         />
 
     <Button
@@ -364,8 +372,8 @@
     <!-- Custom Views -->
 
     <TextView
-        style="@style/SampleHeader"
         android:text="Custom Views"
+        style="@style/SampleHeader"
         />
 
     <Button
@@ -395,8 +403,8 @@
     <!-- Color Chooser -->
 
     <TextView
-        style="@style/SampleHeader"
         android:text="Color"
+        style="@style/SampleHeader"
         />
 
     <Button
@@ -434,8 +442,8 @@
     <!-- Input -->
 
     <TextView
-        style="@style/SampleHeader"
         android:text="Input"
+        style="@style/SampleHeader"
         />
 
     <Button
@@ -465,8 +473,8 @@
     <!-- Progress -->
 
     <TextView
-        style="@style/SampleHeader"
         android:text="Progress"
+        style="@style/SampleHeader"
         />
 
     <Button
@@ -496,8 +504,8 @@
     <!-- Misc -->
 
     <TextView
-        style="@style/SampleHeader"
         android:text="Miscellaneous"
+        style="@style/SampleHeader"
         />
 
     <Button

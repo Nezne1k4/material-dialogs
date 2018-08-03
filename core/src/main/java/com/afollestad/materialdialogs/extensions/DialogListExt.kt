@@ -13,6 +13,7 @@ import com.afollestad.materialdialogs.R
 import com.afollestad.materialdialogs.Theme.LIGHT
 import com.afollestad.materialdialogs.assertOneSet
 import com.afollestad.materialdialogs.internal.MDListAdapter
+import com.afollestad.materialdialogs.internal.MDMultiChoiceAdapter
 import com.afollestad.materialdialogs.internal.MDSingleChoiceAdapter
 
 private fun MaterialDialog.addContentRecyclerView() {
@@ -63,9 +64,10 @@ fun MaterialDialog.singleChoiceListItems(
 fun MaterialDialog.multipleChoiceListItems(
   @ArrayRes arrayRes: Int = 0,
   array: Array<CharSequence>? = null,
-  initialSelections: Array<Int>? = null,
+  initialSelection: Array<Int> = emptyArray(),
   selectionChanged: ((MaterialDialog, Array<Int>, Array<CharSequence>) -> (Boolean))? = null
 ): MaterialDialog {
-  // TODO(Aidan)
-  return this
+  assertOneSet(arrayRes, array)
+  val items = array ?: getStringArray(arrayRes)
+  return listAdapter(MDMultiChoiceAdapter(this, items, initialSelection, selectionChanged))
 }

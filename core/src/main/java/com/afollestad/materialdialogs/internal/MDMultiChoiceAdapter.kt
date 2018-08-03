@@ -12,15 +12,21 @@ import com.afollestad.materialdialogs.extensions.hasActionButtons
 import com.afollestad.materialdialogs.extensions.inflate
 
 /** @author Aidan Follestad (afollestad) */
-internal class MDSingleChoiceViewHolder(
+internal class MDMultiChoiceViewHolder(
   itemView: View,
-  adapter: MDSingleChoiceAdapter,
+  adapter: MDMultiChoiceAdapter,
   dialog: MaterialDialog
 ) : RecyclerView.ViewHolder(itemView) {
   init {
     itemView.setOnClickListener {
-      adapter.currentSelection = adapterPosition
-      adapter.selectionChanged?.invoke(dialog, adapterPosition, adapter.items[adapterPosition])
+      val newSelection = adapter.currentSelection.toMutableList()
+      if (newSelection.contains(adapterPosition)) {
+        newSelection.remove(adapterPosition)
+      } else {
+        newSelection.add(adapterPosition)
+      }
+      adapter.currentSelection = newSelection.toTypedArray()
+      adapter.selectionChanged?.invoke(dialog, adapter.currentSelection, adapter.items)
       if (dialog.autoDismiss && !dialog.hasActionButtons()) {
         dialog.dismiss()
       }
@@ -32,31 +38,41 @@ internal class MDSingleChoiceViewHolder(
 }
 
 /**
- * The default list adapter for single choice (radio button) list dialogs.
+ * The default list adapter for multiple choice (checkbox) list dialogs.
  *
  * @author Aidan Follestad (afollestad)
  */
-internal class MDSingleChoiceAdapter(
+internal class MDMultiChoiceAdapter(
   private var dialog: MaterialDialog,
   internal var items: Array<CharSequence>,
-  initialSelection: Int,
-  internal var selectionChanged: ((MaterialDialog, Int, CharSequence) -> (Boolean))?
-) : RecyclerView.Adapter<MDSingleChoiceViewHolder>() {
+  initialSelection: Array<Int>,
+  internal var selectionChanged: ((MaterialDialog, Array<Int>, Array<CharSequence>) -> (Boolean))?
+) : RecyclerView.Adapter<MDMultiChoiceViewHolder>() {
 
-  var currentSelection: Int = initialSelection
+  var currentSelection: Array<Int> = initialSelection
     set(value) {
       val previousSelection = field
       field = value
-      notifyItemChanged(previousSelection)
-      notifyItemChanged(value)
+      for (previous in previousSelection) {
+        if (!value.contains(previous)) {
+          // This value was unselected
+          notifyItemChanged(previous)
+        }
+      }
+      for (current in value) {
+        if (!previousSelection.contains(current)) {
+          // This value was selected
+          notifyItemChanged(current)
+        }
+      }
     }
 
   override fun onCreateViewHolder(
     parent: ViewGroup,
     viewType: Int
-  ): MDSingleChoiceViewHolder {
-    val listItemView: View = parent.inflate(R.layout.md_listitem_singlechoice)
-    return MDSingleChoiceViewHolder(listItemView, this, dialog)
+  ): MDMultiChoiceViewHolder {
+    val listItemView: View = parent.inflate(R.layout.md_listitem_multichoice)
+    return MDMultiChoiceViewHolder(listItemView, this, dialog)
   }
 
   override fun getItemCount(): Int {
@@ -64,10 +80,10 @@ internal class MDSingleChoiceAdapter(
   }
 
   override fun onBindViewHolder(
-    holder: MDSingleChoiceViewHolder,
+    holder: MDMultiChoiceViewHolder,
     position: Int
   ) {
-    holder.controlView.isChecked = currentSelection == position
+    holder.controlView.isChecked = currentSelection.contains(position)
     holder.titleView.text = items[position]
     holder.itemView.background = dialog.getItemSelector(holder.itemView.context)
   }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.extensions.icon
 import com.afollestad.materialdialogs.extensions.listItems
+import com.afollestad.materialdialogs.extensions.multipleChoiceListItems
 import com.afollestad.materialdialogs.extensions.singleChoiceListItems
 import kotlinx.android.synthetic.main.activity_main.basic
 import kotlinx.android.synthetic.main.activity_main.basic_buttons
@@ -33,6 +34,7 @@ import kotlinx.android.synthetic.main.activity_main.list_long_titled_buttons
 import kotlinx.android.synthetic.main.activity_main.list_titled
 import kotlinx.android.synthetic.main.activity_main.list_titled_buttons
 import kotlinx.android.synthetic.main.activity_main.multiple_choice
+import kotlinx.android.synthetic.main.activity_main.multiple_choice_buttons
 import kotlinx.android.synthetic.main.activity_main.multiple_choice_disabled_items
 import kotlinx.android.synthetic.main.activity_main.multiple_choice_limit
 import kotlinx.android.synthetic.main.activity_main.multiple_choice_long_items
@@ -277,7 +279,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     multiple_choice.setOnClickListener {
-      // TODO
+      MaterialDialog(this).show {
+        title(textRes = R.string.socialNetworks)
+        multipleChoiceListItems(arrayRes = R.array.socialNetworks, initialSelection = arrayOf(1, 3))
+        debugMode(debugMode)
+      }
+    }
+
+    multiple_choice_buttons.setOnClickListener {
+      MaterialDialog(this).show {
+        title(textRes = R.string.socialNetworks)
+        multipleChoiceListItems(arrayRes = R.array.socialNetworks, initialSelection = arrayOf(1, 3))
+        positiveButton(positiveRes = R.string.choose)
+        debugMode(debugMode)
+      }
     }
 
     multiple_choice_limit.setOnClickListener {
