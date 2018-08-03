@@ -1,14 +1,10 @@
 package com.afollestad.materialdialogs.internal
 
 import android.content.Context
-import android.util.AttributeSet
-import android.view.ViewGroup
-import android.widget.ScrollView
-import com.afollestad.materialdialogs.extensions.get
-import android.opengl.ETC1.getHeight
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.AttributeSet
 import android.util.Log
 import com.afollestad.materialdialogs.extensions.waitForLayout
 
@@ -19,7 +15,7 @@ import com.afollestad.materialdialogs.extensions.waitForLayout
  * @author Aidan Follestad (afollestad)
  */
 internal class MDRecyclerView(
-  context: Context?,
+  context: Context,
   attrs: AttributeSet? = null
 ) : RecyclerView(context, attrs) {
 
@@ -47,8 +43,9 @@ internal class MDRecyclerView(
   }
 
   private fun isScrollable(): Boolean {
+    if (adapter == null) return false
     val lm = layoutManager
-    val itemCount = adapter.itemCount
+    val itemCount = adapter!!.itemCount
     return when (lm) {
       is LinearLayoutManager -> {
         val diff = lm.findLastVisibleItemPosition() - lm.findFirstVisibleItemPosition()
@@ -60,7 +57,8 @@ internal class MDRecyclerView(
       }
       else -> {
         Log.w(
-            "MaterialDialogs", "LayourManager of type ${lm.javaClass.name} is currently supported."
+            "MaterialDialogs",
+            "LayoutManager of type ${lm!!.javaClass.name} is currently unsupported."
         )
         return false
       }
@@ -83,7 +81,7 @@ internal class MDRecyclerView(
     if (!isScrollable()) {
       return false
     }
-    val lastIndex = adapter.itemCount - 1
+    val lastIndex = adapter!!.itemCount - 1
     val lm = layoutManager
     return when (lm) {
       is LinearLayoutManager -> lm.findLastVisibleItemPosition() == lastIndex
@@ -94,7 +92,7 @@ internal class MDRecyclerView(
 
   private val scrollListeners = object : RecyclerView.OnScrollListener() {
     override fun onScrolled(
-      recyclerView: RecyclerView?,
+      recyclerView: RecyclerView,
       dx: Int,
       dy: Int
     ) {

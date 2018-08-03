@@ -4,7 +4,6 @@ import android.app.Dialog
 import android.content.Context
 import android.support.annotation.StringRes
 import android.support.annotation.StyleRes
-import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.afollestad.materialdialogs.extensions.inflate
@@ -97,5 +96,10 @@ class MaterialDialog(
   fun debugMode(debugMode: Boolean = true): MaterialDialog {
     view.debugMode = debugMode
     return this
+  }
+
+  inline fun show(func: MaterialDialog.() -> Unit) {
+    this.func()
+    super.show()
   }
 }
